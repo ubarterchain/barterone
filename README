@@ -1,71 +1,10 @@
-This is a multi-threaded CPU miner for Litecoin and Bitcoin,
-fork of Jeff Garzik's reference cpuminer.
+              靔市链 全球第一个共享数字资产自由市场 
+                                              自由造币，自由上市，自由交易
+依托区块链技术，靔市链构建了一个统一的，去中心化的，低成本的，保护隐私的，可信任的，虚拟资产 的自由市场系统，以此解决数字币交易的便利，公平和可靠问题。靔市链市场系统将具备以下特性：
 
-License: GPLv2.  See COPYING for details.
-
-Downloads:  https://sourceforge.net/projects/cpuminer/files/
-Git tree:   https://github.com/pooler/cpuminer
-
-Dependencies:
-	libcurl			http://curl.haxx.se/libcurl/
-	jansson			http://www.digip.org/jansson/
-		(jansson is included in-tree)
-
-Basic *nix build instructions:
-	./autogen.sh	# only needed if building from git repo
-	./nomacro.pl	# in case the assembler doesn't support macros
-	./configure CFLAGS="-O3" # Make sure -O3 is an O and not a zero!
-	make
-
-Notes for AIX users:
-	* To build a 64-bit binary, export OBJECT_MODE=64
-	* GNU-style long options are not supported, but are accessible
-	  via configuration file
-
-Basic Windows build instructions, using MinGW:
-	Install MinGW and the MSYS Developer Tool Kit (http://www.mingw.org/)
-		* Make sure you have mstcpip.h in MinGW\include
-	If using MinGW-w64, install pthreads-w64
-	Install libcurl devel (http://curl.haxx.se/download.html)
-		* Make sure you have libcurl.m4 in MinGW\share\aclocal
-		* Make sure you have curl-config in MinGW\bin
-	In the MSYS shell, run:
-		./autogen.sh	# only needed if building from git repo
-		LIBCURL="-lcurldll" ./configure CFLAGS="-O3"
-		make
-
-Architecture-specific notes:
-	ARM:	No runtime CPU detection. The miner can take advantage
-		of some instructions specific to ARMv5E and later processors,
-		but the decision whether to use them is made at compile time,
-		based on compiler-defined macros.
-		To use NEON instructions, add "-mfpu=neon" to CFLAGS.
-	PowerPC: No runtime CPU detection.
-		To use AltiVec instructions, add "-maltivec" to CFLAGS.
-	x86:	The miner checks for SSE2 instructions support at runtime,
-		and uses them if they are available.
-	x86-64:	The miner can take advantage of AVX, AVX2 and XOP instructions,
-		but only if both the CPU and the operating system support them.
-		    * Linux supports AVX starting from kernel version 2.6.30.
-		    * FreeBSD supports AVX starting with 9.1-RELEASE.
-		    * Mac OS X added AVX support in the 10.6.8 update.
-		    * Windows supports AVX starting from Windows 7 SP1 and
-		      Windows Server 2008 R2 SP1.
-		The configure script outputs a warning if the assembler
-		doesn't support some instruction sets. In that case, the miner
-		can still be built, but unavailable optimizations are left off.
-		The miner uses the VIA Padlock Hash Engine where available.
-
-Usage instructions:  Run "minerd --help" to see options.
-
-Connecting through a proxy:  Use the --proxy option.
-To use a SOCKS proxy, add a socks4:// or socks5:// prefix to the proxy host.
-Protocols socks4a and socks5h, allowing remote name resolving, are also
-available since libcurl 7.18.0.
-If no protocol is specified, the proxy is assumed to be a HTTP proxy.
-When the --proxy option is not used, the program honors the http_proxy
-and all_proxy environment variables.
-
-Also many issues and FAQs are covered in the forum thread
-dedicated to this program,
-	https://bitcointalk.org/index.php?topic=55038.0
+靔市链是一个统一的市场系统。 靔市链的市场主体包括任何根据自己意愿自由加入或退出的交易人。 靔市链的市场客体是各种数 字币。任意具有价值的有形和无形的资产和服务都可以由数字币代表，借此就可以在靔市链上自 由的进行包括价值存储，价值转换，和价值转移等各种交易。这些资产的实例是黄金，股票，股 份，货币，比特币，libra等。 靔市链的市场系统是由许多执行不同功能的子市场的组合。这些 子市场包括银行，交易所，保险行，公正处，托管机构等。靔市链的市场就是由这些市场主体， 客体，和功能子市场共同构成的有机综合体。 靔市链的所有交易活动都是由开源的电脑代码，将根据预定的，公开的，预定的原则形成的各种 标准化的交易，按照公平一致的交易法则自动执行和完成。任何非标准的交易都不会得到靔市链 市场的认可。 靔市链的交易记录的产生摒弃了工作量证明，以避免算力的恶性竞争，也摒弃了权益证明，以防 止资本的控制。靔市链改变记账的激励机制由获利到需求，即挖矿是无利可图的。同时实现在数 秒内达成对交易记录的不可改变的全网统一。 靔市链的所有交易的记录和公布的信息都由使用者自由存储。所有的记录不仅保持所有记录的内 容统一，而且通过链状结构完整记录使用资产的来龙去脉来保证所有记录的内涵统一。靔市链的 完整信息的采集和公布也将参与第三方托管来进行稳定性加持。
+靔市链是一个公共的市场系统。 靔市链是一个没有所有者，只有使用者的，公共的共享市场系统。 靔市链的源码开发是由志愿者们无偿开发的，并将持续增加任何新老志愿者对其进行不断的完善 和再开发。任何人不能控制对靔市链源码的开发和升级。 靔市链的源码是开源的，是由所有使用者共同拥有的，即任何人都可以研究，改进，再开发该源 码。 靔市链运营后的日常维护是由所有使用者主动承担的，也就是使用和维护一体化，即共同使用共 同维护。 靔市链的升级和改进需要在征得广大使用者同意后，由志愿者组成的，非营利的，靔市链基金会 4 负责实施，并将全过程完整记录，永久保存，并全部公示。
+靔市链是一个自由的市场系统。 靔市链是一个可以随时加入或退出的，加密的，P2P网络。其物理状态就是一个由相互直接连接 的电脑，手机，共享网站，和共享存储设备共同构成的一个独立的网络系统。 靔市链是一个任何人都可以利用简单的通讯设备随时进入市场进行交易的市场。靔市链没有任何 关于时间，空间，品种，数量，价格，和方式等方面的对任何人的限制。 靔市链上实现的所有交易都是交易主体按照自己的意愿，以自己的方式，对自己的资产自由的进 行存储，转换，转移等操作。 任何人都可以用自订的方式，自由的，在市场上上市发行或转发个人的，团体的，短期的，长期 的，高风险的，或低风险的可交换的数字币，包括货币。 靔市链是一个摆脱了受任何个人或组织控制的市场。由洋葱路由构建成的P2P网络，不仅使该市 场摆脱了市场信息被传输中心所控制的风险，而且保障了该系统的永久运行和系统所有者的永远 保密。
+靔市链是一个免费的交易市场系统。 免费交易费是真正克服交易中的品种局限和规模局限的必要条件和手段。 靔市链的运行是由所有使用者共同维护。同时，所有使用者都有免费利用市场从事支付，互换， 保险，众筹等交易活动的权力。靔市链的开发，发展，和升级都将依靠大量志愿者的无私奉献。 靔市链的免费原则面临的最大问题可能是引来DOS攻击。对此，靔市链将通过相关的技术安排来 规避之。
+靔市链首先是一个易用的市场系统。 靔市链面向的是最普通的社会民众，力求简单易用。通过简单的APP，网页等，任何人借助电子 设备，都可以像使用普通电子支票一样便利的进行各种交易活动。 靔市链可以进行的交易种类可以包括正在测试的资产支付或赠与和新资产上市，也包括正在开发 的有资产互换，众筹，保险，和风控对赌等等；即资产上市，扫码支付，资产组合，共享保险， 所有权或存在公证，账户管理，公告广告等等。 靔市链的最基础交易就是基于公平规则的，由智能合约自动安排进行的数字币的互换交易。靔市 链的互换交易，根据交易主体的不同，可以是零方（即收款）到多方对应零方（即付款）到多 方；其中，零方对1方到多方就是收取交易或支付交易。 靔市链的互换交易，根据交易客体的不 同，可以是对任意种类的上市资产，或是对任意品种的任意组合的交易。 靔市链的互换交易，根据交易的完成时间的不同，可以是即期对即期的，即期对远期的，或远期对远期的交易。
+靔市链是一个诚信的市场系统。 靔市链的市场系统的核心就是一个开放式的去中心分布账簿系统，其一方面公开记录和保存了该 市场上发生过的所有交易的全过程，全部上市资产的存储情况，和全部资产的所有权归属。另一 方面也将全部记录完整的展现给任何需求者来满足各种分析，风险控制，和监管等等的需求。 靔市链上的交易主体就是市场交易的参与者们。他们的全部资产都体现为以以密码学原理创造 的，代表不同资产种类和资产数量的支票。靔市链不仅保障了所有交易主体的财产所有权和财产 使用权，而且同时也保障了所有交易参与者的隐私。 靔市链上的交易客体是由参与者自行上市的资产。资产的上市方式采取的是登记制。上市的资产 的内涵是由上市者自行安排的，可能是是法币，代币，虚拟币，股票，期货，期权，贵金属等等 以及它们的组合。 靔市链鼓励上市者通过百分之百与实际资产锚定，并且委托专业托管机构进行 全过程托管来提高其上市资产的信誉。 靔市链上的交易方式基本上就是将指定资产从一张或多张支票转入另外的一张或多张支票，并且 将整个过程完整永久记录下来，由全系统所有参与者共同公证和监督交易过程和资产存放。对所 有即期的交易的处理，都类似于物物直接互换；对所有远期的交易的处理，都是借助智能合约对 所有交易客体进行即时锁定后按约定渐次处理的。
